@@ -9,10 +9,16 @@ def question1_p1(list1, list2):
     return difference
 
 def question1_p2(list1, list2):
-    """Find the similarity score"""
-    # can't do binary search since you want to find multiple locations and the list isn't in sorted order
+    """Find the similarity score by multiplying each number in the first list with its number of appearances in the second list"""
+    # conduct a linear search (time complexity will be O(n^2))
+    score = 0
     for i in range(len(list1)):
-        pass
+        count = 0
+        for j in range(len(list2)):
+            if list2[j] == list1[i]:
+                count += 1
+        score += list1[i]*count
+    return score
 
 
 #--------------INPUTS---------------#
@@ -120,14 +126,15 @@ testinput2 = [88154,76363,69158,22488,49242,60034,43760,29173,63754,13305,95805,
 
 #----------PART 1---------------#
 # EXAMPLE OUTPUT
-print(question1_p1(exampleinput1, exampleinput2))
+# print(question1_p1(exampleinput1, exampleinput2))
 
 # ANSWER: PASTE INTO WEBSITE
-print(question1_p1(testinput1, testinput2)) # earned 1 star * !
+# print(question1_p1(testinput1, testinput2)) # earned 1 star * !
 
 
 #-----------PART 2--------------#
 # EXAMPLE OUTPUT
-
+print(question1_p2(exampleinput1, exampleinput2))
 
 # ANSWER OUTPUT
+print(question1_p2(testinput1, testinput2))
